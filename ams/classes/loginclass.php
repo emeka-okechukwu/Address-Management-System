@@ -6,7 +6,7 @@ require("../settings/db_class.php");
 *Login class to handle everything login related
 */
 /**
- *@author David Sampah
+ *@author Team EPYC
  *
  */
 class login_class extends db_connection
