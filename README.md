@@ -1,20 +1,22 @@
 # Address Management System
  Many services you use require address information for the user and store such information. This address changing system allows users to register and manage their addresses in one place. While the other service providers retrieve the users address from this system. 
 
-Software Function
+
+# Software Function
 
 Our software application is an address management system that allows users to upload their contact details  whilst keeping track of their accounts and also allows companies (service providers) to retrieve contact details of individuals registered on the system. For the implementation, we adopted a  model-view-controller architecture in our system. The purpose of this was to separate our system logic to three layers which are connected: model, view and controller. Our users use the controller to make a change in the model which updates their view.
 Our system makes use of two controllers, “addresscontroller.php” and “logincontroller.php” files which extends their base classes, “addressclass.php”  and “loginclass.php” files respectively. These base classes hold methods that are relevant to them. Functions performed by regular users, such as add and update address in the “addresscontroller.php” file are called in the model “addressproc.php” file. The search function performed by service providers in the “addresscontroller.php” file is called in the model “spaddressproc.php” file. Functions to handle the login and signup capabilities of our users are found in the “logincontroller.php” file. This file is connected and called by two other model files “loginproc.php” and “registerproc.php”. All these model files are connected to their respective view files which they will be updating, namely, “addaddress.php”, “spsearchaddress.php”, and “updateaddress.php” for address manipulation; and “index.php” and “register.php” for logging in and registering to the system.
 For users to use the application, they first have to register onto the platform if they do not have accounts after which they log onto the system. When they are successfully logged onto the system, they can add their contact (address) details as well update their contact details. For service providers, they also have to register if they do not have accounts and login afterwards. After successfully logging onto the system, there is a search bar which allows them to search for the contact details of any registered individual using unique address identifiers.
 
-Data Structure
+
+# Data Structure
 
 A hash table is a data structure that enables data storage in an associative approach. Here, the data is kept in as an array with a unique index value assigned to this data. This allows for swift access of data given its index.
 The hash table is implemented in our system with the “password_hash()” function, a built-in PHP function to store user’s passwords securely. A one-way operation which generates a model of a password is called a hash. During the registration process, our system accepts a password from our user and using this algorithm, it hashes this password which is sent to our database. During the logging process, the user enters their email and password. This password inputted by the user is hashed once more and cross checked with what is stored in the database. The user will be directed to his relevant interface if both hashes are a match. 
 “Password_hash()” is implemented in our system to avoid the user’s passwords to be saved in our database as plain text as this becomes a security flaw when the password can be read by anyone. Hashing passwords makes it almost impossible for intruders to interpret thus preventing unauthorized access to our system. We found it necessary to use this data structure because it gave us the opportunity of saving user passwords swiftly in a secure manner. This implementation was done in our login class found in the “loginclass.php” file.
 
 
-Technology & Justification
+# Technology & Justification
 
 The main technologies we employed in this application are html,css,javascript,php and mysql because our application is a web application therefore these technologies are essential.
 Personal Home Page (PHP) Tools is a server-side programming language used here to make dynamic web pages that would interact with our database. PHP allowed users to transfer data to and from the database depending on which function they execute. For example, when a regular user is filling out his address details on a form, PHP allows his/her details to be sent to the database for storage and retrieval by the service provider. 
